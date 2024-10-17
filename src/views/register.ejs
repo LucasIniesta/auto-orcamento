@@ -2,27 +2,31 @@
 <div class="container">
     <div class="col-8 position-absolute top-50 start-50 translate-middle">
         <h1 class="my-3 text-center">Cadastro</h1>
-        <form action="/register" method="post">
+        <%- include('includes/messages')%>
+        <form action="/register" method="post" id="registerForm">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <div class="mb-3">
-              <label for="name" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="name" name="name" required>
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <div id="nameError" class="form-text text-danger" style="display:none;">Nome inválido. Deve ter pelo menos 3 caracteres.</div>
             </div>
             <div class="mb-3">
-              <label for="email" class="form-label">E-mail</label>
-              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
-              <div id="emailHelp" class="form-text">Seu e-mail nunca será compartilhado com terceiros.</div>
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+                <div id="emailHelp" class="form-text">Seu e-mail nunca será compartilhado com terceiros.</div>
             </div>
             <div class="mb-3">
-              <label for="password" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="password" name="password" required>
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="mb-3">
-              <label for="confirmPassword" class="form-label">Confirmar Senha</label>
-              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                <label for="confirmPassword" class="form-label">Confirmar Senha</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                <div id="passwordError" class="form-text text-danger" style="display:none;">As senhas não são iguais.</div>
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
-          </form>
-          <p class="mt-3">Já tem uma conta?<br> Faça login <a href="/login">aqui</a>.</p>
+        </form>
+        <p class="mt-3">Já tem uma conta?<br> Faça login <a href="/login">aqui</a>.</p>
     </div>
 </div>
 <%- include('includes/footer')%>
