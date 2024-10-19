@@ -4,6 +4,11 @@ exports.index = (req, res) => {
   res.render('index');
 };
 
+exports.logOut = (req, res) => {
+  req.session.destroy()
+  res.redirect('/')
+}
+
 exports.login = (req, res) => {
   res.render('login')
 }
@@ -31,3 +36,24 @@ exports.processRegister = async (req, res) => {
   }
   
 };
+
+exports.processLogin = async (req, res) => {
+  try{
+    const auth = new Auth(req.body);
+    await auth.login();
+  
+    if (auth.errors.length > 0) {
+      req.flash('errors', auth.errors);
+      return req.session.save(() => res.redirect('/login'));
+    }
+
+    req.flash('success', 'Usuário logado com sucesso')
+    req.session.user = auth.user
+    req.session.save(() => res.redirect('/dashboard'))
+  
+  }catch(e) {
+    res.render('404')
+    console.log(e)
+  }
+}
+

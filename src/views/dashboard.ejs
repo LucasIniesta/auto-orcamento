@@ -1,10 +1,11 @@
 <%- include('includes/head')%>
 <div class="container">
     <h1 class="my-4 text-center">Meus Orçamentos</h1>
+    <%- include('includes/messages') %>
     
     <div class="d-flex justify-content-between">
-        <h3>Bem-vindo, [Nome do Usuário]!</h3>
-        <a href="#" class="btn btn-danger">Sair</a>
+        <h3>Bem-vindo, <%= user.name %>!</h3>
+        <a href="/dashboard/logOut" class="btn btn-danger">Sair</a>
     </div>
 
     <div class="my-3">

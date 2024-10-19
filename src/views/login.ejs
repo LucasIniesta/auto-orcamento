@@ -1,5 +1,8 @@
 <%- include('includes/head')%>
-<div class="container">
+<% if (user) { %>
+  <%- include('includes/logged')%>
+<% } else { %>
+  <div class="container">
     <div class="col-8 position-absolute top-50 start-50 translate-middle">
         <h1 class="my-3 text-center">Login</h1>
         <%- include('includes/messages') %>
@@ -7,16 +10,18 @@
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">E-mail</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               <div id="emailHelp" class="form-text">Seu e-mail nunca será compartilhado com terceiros.</div>
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input name="password" type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
           <p class="mt-3">Não tem uma conta?<br> Cadastre-se <a href="/register">aqui</a>.</p>
+        </form>
     </div>
-</div>
+  </div>
+<% } %>
 <%- include('includes/footer')%>
