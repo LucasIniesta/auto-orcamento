@@ -1,27 +1,63 @@
-<%- include('includes/head')%>
+<%- include('includes/head') %>
+<%- include('includes/navbar') %>
+
 <div class="container">
-    <h1 class="my-4 text-center">Editar Orçamento</h1>
+    <h1 class="my-4 text-center">Editar Proposta</h1>
+
     <form action="#" method="POST">
         <div class="mb-3">
             <label for="cliente" class="form-label">Cliente</label>
             <input type="text" class="form-control" id="cliente" name="cliente" value="Cliente Exemplo" required>
         </div>
+
+        <!-- Barra de Pesquisa para adicionar mais produtos -->
         <div class="mb-3">
-            <label for="produtos" class="form-label">Produto/Serviço</label>
-            <select class="form-select" id="produtos" name="produtos[]" multiple required>
-                <option value="1" selected>Produto 1 - R$ 100,00</option>
-                <option value="2">Produto 2 - R$ 200,00</option>
-            </select>
+            <label for="buscarProduto" class="form-label">Buscar Produto/Serviço</label>
+            <input type="text" class="form-control" id="buscarProduto" name="buscarProduto" placeholder="Digite o nome do produto">
+            <div id="resultadoBusca" class="list-group mt-2"></div> <!-- Resultados da busca -->
         </div>
-        <div class="mb-3">
-            <label for="quantidade" class="form-label">Quantidade</label>
-            <input type="number" class="form-control" id="quantidade" name="quantidade" value="2" required>
+
+        <h4>Produtos/Serviços</h4>
+        <div class="mb-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Produto/Serviço</th>
+                        <th>Quantidade</th>
+                        <th>Valor Unitário (R$)</th>
+                        <th>Valor Total (R$)</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Produto 1</td>
+                        <td><input type="number" class="form-control" name="quantidade[]" value="2" required></td>
+                        <td>100,00</td>
+                        <td>200,00</td>
+                        <td><button type="button" class="btn btn-danger">Remover</button></td>
+                    </tr>
+                    <tr>
+                        <td>Produto 2</td>
+                        <td><input type="number" class="form-control" name="quantidade[]" value="1" required></td>
+                        <td>200,00</td>
+                        <td>200,00</td>
+                        <td><button type="button" class="btn btn-danger">Remover</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
         <div class="mb-3">
             <label for="observacoes" class="form-label">Observações</label>
-            <textarea class="form-control" id="observacoes" name="observacoes" rows="3">Sem observações</textarea>
+            <textarea class="form-control" id="observacoes" name="observacoes" rows="3">Observações do exemplo</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-primary me-md-2">Salvar Alterações</button>
+            <a href="/dashboard" class="btn btn-secondary">Cancelar</a>
+        </div>
     </form>
 </div>
-<%- include('includes/footer')%>
+
+<%- include('includes/footer') %>

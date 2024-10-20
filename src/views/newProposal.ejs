@@ -1,0 +1,44 @@
+<%- include('includes/head') %>
+<%- include('includes/navbar') %>
+
+<div class="container">
+    <h1 class="my-4 text-center">Criar Novo Orçamento</h1>
+    
+    <!-- Barra de Busca -->
+    <div class="mb-3">
+        <label for="buscarProduto" class="form-label">Buscar Produto/Serviço</label>
+        <input type="text" class="form-control" id="buscarProduto" name="buscarProduto" placeholder="Digite o nome do produto">
+        <div id="resultadoBusca" class="list-group mt-2"></div> <!-- Resultados da busca -->
+    </div>
+
+    <!-- Produtos Selecionados -->
+    <h4>Produtos Selecionados</h4>
+    <div id="produtosSelecionados" class="mb-4">
+        <!-- Os produtos selecionados aparecerão aqui -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Produto/Serviço</th>
+                    <th>Quantidade</th>
+                    <th>Valor Unitário (R$)</th>
+                    <th>Valor Total (R$)</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody id="listaProdutos">
+                <!-- Linhas dos produtos adicionados -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Formulário de Observações e Geração de Orçamento -->
+    <form action="#" method="POST">
+        <div class="mb-3">
+            <label for="observacoes" class="form-label">Observações</label>
+            <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Gerar Orçamento</button>
+    </form>
+</div>
+
+<%- include('includes/footer') %>

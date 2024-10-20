@@ -5,11 +5,11 @@
     
     <div class="d-flex justify-content-between">
         <h3>Bem-vindo, <%= user.name %>!</h3>
-        <a href="/dashboard/logOut" class="btn btn-danger">Sair</a>
+        <a href="/login/logOut" class="btn btn-danger">Sair</a>
     </div>
 
     <div class="my-3">
-        <a href="#" class="btn btn-success">Criar Novo Orçamento</a>
+        <a href="/newProposal" class="btn btn-success">Criar Novo Orçamento</a>
     </div>
 
     <table class="table table-striped mt-4">
@@ -27,8 +27,8 @@
                 <td>12/10/2024</td>
                 <td>R$ 1.000,00</td>
                 <td>
-                    <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
-                    <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="/viewProposal" class="btn btn-primary btn-sm">Visualizar</a>
+                    <a href="/editProposal" class="btn btn-warning btn-sm">Editar</a>
                     <a href="#" class="btn btn-danger btn-sm">Excluir</a>
                 </td>
             </tr>

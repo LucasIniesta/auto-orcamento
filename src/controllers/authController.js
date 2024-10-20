@@ -9,6 +9,10 @@ exports.logOut = (req, res) => {
   res.redirect('/')
 }
 
+exports.dashBoard  = (req, res) => {
+  res.render('dashboard')
+}
+
 exports.login = (req, res) => {
   res.render('login')
 }
